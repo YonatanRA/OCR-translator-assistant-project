@@ -1,0 +1,80 @@
+Comenzando...
+
+Modelo SoftMax (MLR) : Numeros
+
+GridSearching
+
+Datos leidos...
+Datos normalizados.
+
+Lambda=0.1
+Tiempo total optimizacion: 3190.62 segundos.
+Entranamiento  :
+69484 correctos de 93057 ==> 74.67% correcto.
+Test  :
+15836 correctos de 23265 ==> 68.07% correcto.
+
+Lambda=1.0
+Tiempo total optimizacion: 3217.40 segundos.
+Entranamiento  :
+69563 correctos de 93057 ==> 74.75% correcto.
+Test  :
+15858 correctos de 23265 ==> 68.16% correcto.
+
+Lambda=10.0
+Tiempo total optimizacion: 3158.95 segundos.
+Entranamiento  :
+69430 correctos de 93057 ==> 74.61% correcto.
+Test  :
+15959 correctos de 23265 ==> 68.6% correcto.
+
+Lambda=50.0
+Tiempo total optimizacion: 2647.05 segundos.
+Entranamiento  :
+68706 correctos de 93057 ==> 73.83% correcto.
+Test  :
+16143 correctos de 23265 ==> 69.39% correcto.
+
+Lambda=100.0
+Tiempo total optimizacion: 2315.96 segundos.
+Entranamiento  :
+68209 correctos de 93057 ==> 73.3% correcto.
+Test  :
+16194 correctos de 23265 ==> 69.61% correcto.
+
+Lambda=200.0
+Tiempo total optimizacion: 2091.19 segundos.
+Entranamiento  :
+67622 correctos de 93057 ==> 72.67% correcto.
+Test  :
+16195 correctos de 23265 ==> 69.61% correcto.
+
+
+Tiempo gridsearch : 17796.09 segundos
+
+
+Lambda=150.0
+Tiempo total optimizacion: 2216.30 segundos.
+Entranamiento  :
+67882 correctos de 93057 ==> 72.95% correcto.
+Test  :
+16189 correctos de 23265 ==> 69.59% correcto.
+
+Lambda=300.0
+Tiempo total optimizacion: 1958.29 segundos.
+Entranamiento  :
+67221 correctos de 93057 ==> 72.24% correcto.
+Test  :
+16182 correctos de 23265 ==> 69.56% correcto.
+
+Lambda=500.0
+Tiempo total optimizacion: 1661.71 segundos.
+Entranamiento  :
+66684 correctos de 93057 ==> 71.66% correcto.
+Test  :
+16134 correctos de 23265 ==> 69.35% correcto.
+
+
+Tiempo gridsearch : 6538.19 segundos.
+
+
