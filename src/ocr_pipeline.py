@@ -1,10 +1,11 @@
 # ocr_pipeline.py
 
-import cv2                         # libreria OpenCV para vision por computador
-from PIL import Image              # para imagen
-import numpy as np                 # numerical python
-import pandas as pd                # dataframe (datos parametros)
-from google_speech import Speech   # para hablar
+import cv2                           # libreria OpenCV para vision por computador
+from PIL import Image                # para imagen
+import numpy as np                   # numerical python
+import pandas as pd                  # dataframe (datos parametros)
+from google_speech import Speech     # para hablar
+from googletrans import Translator   # para traducir
 
 
 
@@ -128,15 +129,19 @@ def interpreta(idx, A_opt):
 
 
 
-def habla(texto, lang="es"):
-	voz=Speech(texto, lang)
+def habla(texto, leng='es'):
+	voz=Speech(texto, leng)
 	return voz.play()
 
 
 
 
-	
 
+def traduce(texto, leng='en'):
+	traductor=Translator()
+	traduccion=traductor.translate(texto, dest=leng).text
+	pronunciacion=traductor.translate(texto, dest=leng).pronunciation
+	return traduccion
 
 
 

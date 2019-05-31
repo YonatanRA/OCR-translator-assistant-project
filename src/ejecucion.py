@@ -10,10 +10,13 @@ if __name__=='__main__':
 	captura()
 	contraste()
 	idx=contorno()
-	palabra=interpreta(idx, A_opt)
+	palabra=interpreta(idx, A_opt).lower()
 	print (palabra)
-	habla(palabra, lang='es')
-
+	habla(palabra, leng='es')
+	idioma='en'
+	traduccion=(traduce(palabra.lower(), leng=idioma))
+	print (traduccion)
+	habla(traduccion, leng=idioma)
 
 
 
