@@ -4,7 +4,7 @@
 
 
 import sys
-sys.stdout=open('gridsearch_letras2.txt','wt')  # registro
+sys.stdout=open('gridsearch_letras.txt','wt')  # registro
 import time                            # para tiempo
 inicio=time.time()                     # momento inicial
 print ('Comenzando...\n')

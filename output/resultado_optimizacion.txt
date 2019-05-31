@@ -1,0 +1,507 @@
+Comenzando...
+
+Modelo SoftMax (MLR) : EMNIST Letras
+Datos leidos...
+Datos normalizados.
+
+
+Optimizando 0 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 158, function evaluations: 158, CG iterations: 1303, optimality: 1.71e-06, constraint violation: 0.00e+00, execution time: 6.3e+01 s.
+Hecho.
+Tiempo optimizacion: 64.09 segundos
+
+
+Optimizando 1 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 133, function evaluations: 133, CG iterations: 904, optimality: 4.49e-05, constraint violation: 0.00e+00, execution time: 6e+01 s.
+Hecho.
+Tiempo optimizacion: 60.39 segundos
+
+
+Optimizando 2 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 161, function evaluations: 161, CG iterations: 1171, optimality: 1.35e-06, constraint violation: 0.00e+00, execution time: 8.6e+01 s.
+Hecho.
+Tiempo optimizacion: 86.85 segundos
+
+
+Optimizando 3 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 147, function evaluations: 147, CG iterations: 1065, optimality: 5.59e-06, constraint violation: 0.00e+00, execution time: 6.5e+01 s.
+Hecho.
+Tiempo optimizacion: 65.32 segundos
+
+
+Optimizando 4 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 160, function evaluations: 160, CG iterations: 1221, optimality: 4.29e-06, constraint violation: 0.00e+00, execution time: 7.6e+01 s.
+Hecho.
+Tiempo optimizacion: 76.24 segundos
+
+
+Optimizando 5 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 147, function evaluations: 147, CG iterations: 1079, optimality: 5.91e-06, constraint violation: 0.00e+00, execution time: 7.6e+01 s.
+Hecho.
+Tiempo optimizacion: 76.81 segundos
+
+
+Optimizando 6 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 156, function evaluations: 156, CG iterations: 1219, optimality: 1.93e-06, constraint violation: 0.00e+00, execution time: 7.6e+01 s.
+Hecho.
+Tiempo optimizacion: 76.63 segundos
+
+
+Optimizando 7 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 133, function evaluations: 133, CG iterations: 891, optimality: 4.84e-05, constraint violation: 0.00e+00, execution time: 7.1e+01 s.
+Hecho.
+Tiempo optimizacion: 71.00 segundos
+
+
+Optimizando 8 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 166, function evaluations: 166, CG iterations: 1250, optimality: 3.69e-06, constraint violation: 0.00e+00, execution time: 8.2e+01 s.
+Hecho.
+Tiempo optimizacion: 82.22 segundos
+
+
+Optimizando 9 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 162, function evaluations: 162, CG iterations: 1240, optimality: 7.02e-06, constraint violation: 0.00e+00, execution time: 7.8e+01 s.
+Hecho.
+Tiempo optimizacion: 78.20 segundos
+
+
+Optimizando 10 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 144, function evaluations: 144, CG iterations: 1024, optimality: 5.99e-06, constraint violation: 0.00e+00, execution time: 6.9e+01 s.
+Hecho.
+Tiempo optimizacion: 69.70 segundos
+
+
+Optimizando 11 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 171, function evaluations: 171, CG iterations: 1208, optimality: 3.23e-06, constraint violation: 0.00e+00, execution time: 8.2e+01 s.
+Hecho.
+Tiempo optimizacion: 81.92 segundos
+
+
+Optimizando 12 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 148, function evaluations: 148, CG iterations: 1037, optimality: 4.17e-06, constraint violation: 0.00e+00, execution time: 7.2e+01 s.
+Hecho.
+Tiempo optimizacion: 72.02 segundos
+
+
+Optimizando 13 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 184, function evaluations: 184, CG iterations: 1341, optimality: 1.74e-06, constraint violation: 0.00e+00, execution time: 8.9e+01 s.
+Hecho.
+Tiempo optimizacion: 89.18 segundos
+
+
+Optimizando 14 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 180, function evaluations: 180, CG iterations: 1472, optimality: 1.48e-06, constraint violation: 0.00e+00, execution time: 8.8e+01 s.
+Hecho.
+Tiempo optimizacion: 87.95 segundos
+
+
+Optimizando 15 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 155, function evaluations: 155, CG iterations: 1154, optimality: 2.07e-05, constraint violation: 0.00e+00, execution time: 7.5e+01 s.
+Hecho.
+Tiempo optimizacion: 75.85 segundos
+
+
+Optimizando 16 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 135, function evaluations: 135, CG iterations: 881, optimality: 3.23e-05, constraint violation: 0.00e+00, execution time: 6.5e+01 s.
+Hecho.
+Tiempo optimizacion: 65.33 segundos
+
+
+Optimizando 17 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 148, function evaluations: 148, CG iterations: 1069, optimality: 1.92e-05, constraint violation: 0.00e+00, execution time: 7.2e+01 s.
+Hecho.
+Tiempo optimizacion: 72.43 segundos
+
+
+Optimizando 18 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 155, function evaluations: 155, CG iterations: 1032, optimality: 5.64e-05, constraint violation: 0.00e+00, execution time: 7.5e+01 s.
+Hecho.
+Tiempo optimizacion: 75.78 segundos
+
+
+Optimizando 19 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 134, function evaluations: 134, CG iterations: 964, optimality: 9.74e-05, constraint violation: 0.00e+00, execution time: 6.6e+01 s.
+Hecho.
+Tiempo optimizacion: 66.21 segundos
+
+
+Optimizando 20 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 141, function evaluations: 141, CG iterations: 984, optimality: 1.65e-05, constraint violation: 0.00e+00, execution time: 6.9e+01 s.
+Hecho.
+Tiempo optimizacion: 69.13 segundos
+
+
+Optimizando 21 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 159, function evaluations: 159, CG iterations: 1049, optimality: 7.98e-05, constraint violation: 0.00e+00, execution time: 7.6e+01 s.
+Hecho.
+Tiempo optimizacion: 76.27 segundos
+
+
+Optimizando 22 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 135, function evaluations: 135, CG iterations: 898, optimality: 2.77e-05, constraint violation: 0.00e+00, execution time: 6.6e+01 s.
+Hecho.
+Tiempo optimizacion: 66.60 segundos
+
+
+Optimizando 23 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 138, function evaluations: 138, CG iterations: 983, optimality: 1.70e-05, constraint violation: 0.00e+00, execution time: 6.6e+01 s.
+Hecho.
+Tiempo optimizacion: 66.39 segundos
+
+
+Optimizando 24 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 143, function evaluations: 143, CG iterations: 1077, optimality: 4.77e-06, constraint violation: 0.00e+00, execution time: 6.9e+01 s.
+Hecho.
+Tiempo optimizacion: 69.62 segundos
+
+
+Optimizando 25 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 159, function evaluations: 159, CG iterations: 1144, optimality: 9.86e-05, constraint violation: 0.00e+00, execution time: 7.6e+01 s.
+Hecho.
+Tiempo optimizacion: 76.72 segundos
+
+
+Optimizando 26 frente al resto
+Optimizacion trust-constr...
+`gtol` termination condition is satisfied.
+Number of iterations: 181, function evaluations: 181, CG iterations: 1397, optimality: 9.63e-07, constraint violation: 0.00e+00, execution time: 8.9e+01 s.
+Hecho.
+Tiempo optimizacion: 89.33 segundos
+
+
+Optimizando 27 frente al resto
+Optimizacion trust-constr...
+`gtol` termination condition is satisfied.
+Number of iterations: 180, function evaluations: 180, CG iterations: 1416, optimality: 8.94e-07, constraint violation: 0.00e+00, execution time: 8.8e+01 s.
+Hecho.
+Tiempo optimizacion: 88.42 segundos
+
+
+Optimizando 28 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 157, function evaluations: 157, CG iterations: 1160, optimality: 1.02e-05, constraint violation: 0.00e+00, execution time: 7.7e+01 s.
+Hecho.
+Tiempo optimizacion: 77.13 segundos
+
+
+Optimizando 29 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 199, function evaluations: 199, CG iterations: 1464, optimality: 6.79e-05, constraint violation: 0.00e+00, execution time: 9.7e+01 s.
+Hecho.
+Tiempo optimizacion: 97.00 segundos
+
+
+Optimizando 30 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 147, function evaluations: 147, CG iterations: 1019, optimality: 6.18e-06, constraint violation: 0.00e+00, execution time: 7.2e+01 s.
+Hecho.
+Tiempo optimizacion: 72.34 segundos
+
+
+Optimizando 31 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 128, function evaluations: 128, CG iterations: 845, optimality: 9.92e-06, constraint violation: 0.00e+00, execution time: 6.1e+01 s.
+Hecho.
+Tiempo optimizacion: 61.90 segundos
+
+
+Optimizando 32 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 167, function evaluations: 167, CG iterations: 1299, optimality: 4.85e-05, constraint violation: 0.00e+00, execution time: 8.1e+01 s.
+Hecho.
+Tiempo optimizacion: 81.19 segundos
+
+
+Optimizando 33 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 149, function evaluations: 149, CG iterations: 1007, optimality: 3.92e-05, constraint violation: 0.00e+00, execution time: 7.2e+01 s.
+Hecho.
+Tiempo optimizacion: 72.07 segundos
+
+
+Optimizando 34 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 137, function evaluations: 137, CG iterations: 914, optimality: 5.04e-05, constraint violation: 0.00e+00, execution time: 6.5e+01 s.
+Hecho.
+Tiempo optimizacion: 65.72 segundos
+
+
+Optimizando 35 frente al resto
+Optimizacion trust-constr...
+`gtol` termination condition is satisfied.
+Number of iterations: 187, function evaluations: 187, CG iterations: 1446, optimality: 7.20e-07, constraint violation: 0.00e+00, execution time: 9e+01 s.
+Hecho.
+Tiempo optimizacion: 90.82 segundos
+
+
+Optimizando 36 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 136, function evaluations: 136, CG iterations: 871, optimality: 1.31e-05, constraint violation: 0.00e+00, execution time: 6.4e+01 s.
+Hecho.
+Tiempo optimizacion: 64.63 segundos
+
+
+Optimizando 37 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 137, function evaluations: 137, CG iterations: 994, optimality: 3.94e-05, constraint violation: 0.00e+00, execution time: 6.4e+01 s.
+Hecho.
+Tiempo optimizacion: 64.19 segundos
+
+
+Optimizando 38 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 160, function evaluations: 160, CG iterations: 1227, optimality: 7.60e-06, constraint violation: 0.00e+00, execution time: 7.6e+01 s.
+Hecho.
+Tiempo optimizacion: 76.36 segundos
+
+
+Optimizando 39 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 139, function evaluations: 139, CG iterations: 958, optimality: 7.33e-05, constraint violation: 0.00e+00, execution time: 6.6e+01 s.
+Hecho.
+Tiempo optimizacion: 66.45 segundos
+
+
+Optimizando 40 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 134, function evaluations: 134, CG iterations: 911, optimality: 1.18e-05, constraint violation: 0.00e+00, execution time: 6.5e+01 s.
+Hecho.
+Tiempo optimizacion: 65.13 segundos
+
+
+Optimizando 41 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 129, function evaluations: 129, CG iterations: 882, optimality: 2.47e-05, constraint violation: 0.00e+00, execution time: 6.2e+01 s.
+Hecho.
+Tiempo optimizacion: 62.53 segundos
+
+
+Optimizando 42 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 151, function evaluations: 151, CG iterations: 1080, optimality: 3.75e-06, constraint violation: 0.00e+00, execution time: 7.3e+01 s.
+Hecho.
+Tiempo optimizacion: 72.98 segundos
+
+
+Optimizando 43 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 150, function evaluations: 150, CG iterations: 1019, optimality: 4.28e-05, constraint violation: 0.00e+00, execution time: 7.1e+01 s.
+Hecho.
+Tiempo optimizacion: 71.12 segundos
+
+
+Optimizando 44 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 122, function evaluations: 122, CG iterations: 799, optimality: 6.20e-05, constraint violation: 0.00e+00, execution time: 5.7e+01 s.
+Hecho.
+Tiempo optimizacion: 57.80 segundos
+
+
+Optimizando 45 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 157, function evaluations: 157, CG iterations: 1086, optimality: 5.57e-05, constraint violation: 0.00e+00, execution time: 7.4e+01 s.
+Hecho.
+Tiempo optimizacion: 74.21 segundos
+
+
+Optimizando 46 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 170, function evaluations: 170, CG iterations: 1230, optimality: 3.78e-06, constraint violation: 0.00e+00, execution time: 8e+01 s.
+Hecho.
+Tiempo optimizacion: 80.13 segundos
+
+
+Optimizando 47 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 141, function evaluations: 141, CG iterations: 917, optimality: 4.30e-05, constraint violation: 0.00e+00, execution time: 6.6e+01 s.
+Hecho.
+Tiempo optimizacion: 66.38 segundos
+
+
+Optimizando 48 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 209, function evaluations: 209, CG iterations: 1417, optimality: 4.90e-05, constraint violation: 0.00e+00, execution time: 9.8e+01 s.
+Hecho.
+Tiempo optimizacion: 98.77 segundos
+
+
+Optimizando 49 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 175, function evaluations: 175, CG iterations: 1203, optimality: 4.58e-06, constraint violation: 0.00e+00, execution time: 8.1e+01 s.
+Hecho.
+Tiempo optimizacion: 81.51 segundos
+
+
+Optimizando 50 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 179, function evaluations: 179, CG iterations: 1233, optimality: 4.17e-06, constraint violation: 0.00e+00, execution time: 9e+01 s.
+Hecho.
+Tiempo optimizacion: 90.15 segundos
+
+
+Optimizando 51 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 132, function evaluations: 132, CG iterations: 905, optimality: 4.84e-05, constraint violation: 0.00e+00, execution time: 6.5e+01 s.
+Hecho.
+Tiempo optimizacion: 65.77 segundos
+
+
+Optimizando 52 frente al resto
+Optimizacion trust-constr...
+`gtol` termination condition is satisfied.
+Number of iterations: 178, function evaluations: 178, CG iterations: 1352, optimality: 9.11e-07, constraint violation: 0.00e+00, execution time: 8.6e+01 s.
+Hecho.
+Tiempo optimizacion: 86.71 segundos
+
+
+Optimizando 53 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 127, function evaluations: 127, CG iterations: 857, optimality: 2.49e-05, constraint violation: 0.00e+00, execution time: 6e+01 s.
+Hecho.
+Tiempo optimizacion: 60.42 segundos
+
+
+Optimizando 54 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 164, function evaluations: 164, CG iterations: 1212, optimality: 1.23e-06, constraint violation: 0.00e+00, execution time: 7.8e+01 s.
+Hecho.
+Tiempo optimizacion: 78.73 segundos
+
+
+Optimizando 55 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 143, function evaluations: 143, CG iterations: 1044, optimality: 1.36e-05, constraint violation: 0.00e+00, execution time: 6.8e+01 s.
+Hecho.
+Tiempo optimizacion: 68.75 segundos
+
+
+Optimizando 56 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 158, function evaluations: 158, CG iterations: 1093, optimality: 9.00e-06, constraint violation: 0.00e+00, execution time: 7.6e+01 s.
+Hecho.
+Tiempo optimizacion: 76.68 segundos
+
+
+Optimizando 57 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 127, function evaluations: 127, CG iterations: 886, optimality: 1.68e-05, constraint violation: 0.00e+00, execution time: 6.1e+01 s.
+Hecho.
+Tiempo optimizacion: 61.07 segundos
+
+
+Optimizando 58 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 186, function evaluations: 186, CG iterations: 1379, optimality: 4.22e-05, constraint violation: 0.00e+00, execution time: 9.1e+01 s.
+Hecho.
+Tiempo optimizacion: 91.26 segundos
+
+
+Optimizando 59 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 134, function evaluations: 134, CG iterations: 944, optimality: 1.54e-05, constraint violation: 0.00e+00, execution time: 6.5e+01 s.
+Hecho.
+Tiempo optimizacion: 65.27 segundos
+
+
+Optimizando 60 frente al resto
+Optimizacion trust-constr...
+`xtol` termination condition is satisfied.
+Number of iterations: 181, function evaluations: 181, CG iterations: 1416, optimality: 3.47e-06, constraint violation: 0.00e+00, execution time: 8.8e+01 s.
+Hecho.
+Tiempo optimizacion: 88.11 segundos
+
+Tiempo total optimizacion: 4549.88 segundos
+
+
+Entranamiento  :
+68201 correctos de 93057 ==> 73.29% correcto
+
+Test  :
+16186 correctos de 23265 ==> 69.57% correcto
+
+Tiempo final : 4788.43 segundos
+
+
+Dimensiones matriz de parametros=(750, 61)
