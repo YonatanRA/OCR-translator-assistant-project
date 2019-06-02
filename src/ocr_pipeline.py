@@ -206,7 +206,7 @@ def traduce(texto, leng='en'):
 
 
 
-def mongo_escribe(ori, trad):   # llamada a atlas
+def mongo_escribe(ori, trad):    # llamada a atlas
 	cliente=pymongo.MongoClient('mongodb+srv://Yonatan:{}@mambacluster-v9uol.mongodb.net/test?retryWrites=true&w=majority'.format(token('mongoatlas.txt')))
 	db=cliente.test  # base de datos
 
