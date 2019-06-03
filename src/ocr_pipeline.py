@@ -18,7 +18,7 @@ import pymongo                       # mongodb, para llamada a atlas
 
 
 
-def token(token):                # lectura de txt, token
+def token(token):                                   # lectura de txt, token
     with open(token, 'r') as f:
         t=f.readlines()[0].split('\n')[0]
     return t
@@ -64,12 +64,12 @@ def contraste():                                    # funcion para pasar imagen 
 
 
 
-
-def contorno():                                 # funcion captura de contorno, captura letras
-	umbral_fino=10                              # umbral fino para deteccion de contornos
-	image=cv2.imread('b&w.png')                 # lee la imagen
-	im=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)   # pasa a grises
-	im=(255-im)                                 # pasa a negativo
+  
+def contorno():                                     # funcion captura de contorno, captura letras
+	umbral_fino=10                                  # umbral fino para deteccion de contornos
+	image=cv2.imread('b&w.png')                     # lee la imagen
+	im=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)       # pasa a grises
+	im=(255-im)                                     # pasa a negativo
 	thresh=cv2.adaptiveThreshold(im, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)      # umbral adaptativo
 	rect_kernel=cv2.getStructuringElement(cv2.MORPH_RECT, (30, 10))                                          # elemento estructural (rectangular) 
 	threshed=cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, rect_kernel)                                          # transformacion morfologica
@@ -92,7 +92,7 @@ def contorno():                                 # funcion captura de contorno, c
 
 
 
-def normalizador(X):               # normalizador de los datos de letra
+def normalizador(X):                                # normalizador de los datos de letra
     X_media=X.mean()               
     X_std=X.std()                  
     X=(X-X_media)/X_std            
@@ -102,13 +102,13 @@ def normalizador(X):               # normalizador de los datos de letra
 
 
 
-def f(X,a):                                 # funcion logistica, sigmoide, funcion del modelo, con z=X*alfa, el producto escalar
-    return 1.0/(1.0+np.exp(-np.dot(X,a)))   # Boltzmann con pivote, alfa[i]=0
+def f(X,a):                                         # funcion logistica, sigmoide, funcion del modelo, con z=X*alfa, el producto escalar
+    return 1.0/(1.0+np.exp(-np.dot(X,a)))           # Boltzmann con pivote, alfa[i]=0
 
 
 
 
-def interpreta_softmax(idx):                     # funcion evaluacion modelo softmax
+def interpreta_softmax(idx):                        # funcion evaluacion modelo softmax
 	A_opt=pd.read_csv('../input/alfa-letras.csv').values  # parametros salida softmax
 	resultado=''
 	
@@ -159,7 +159,7 @@ def interpreta_softmax(idx):                     # funcion evaluacion modelo sof
 
 
 
-def interpreta_cnn(idx):                 # funcion evaluacion modelo cnn
+def interpreta_cnn(idx):                            # funcion evaluacion modelo cnn
 	modelo=load_model('../input/modelo_cnn_letras.h5')   # modelo cnn
 	resultado=''
 	alfabeto={0:'0', 1:'1', 2:'2', 3:'3', 4:'4', 5:'5', 6:'6', 7:'7', 8:'8', 9:'9',
@@ -195,7 +195,7 @@ def interpreta_cnn(idx):                 # funcion evaluacion modelo cnn
 
 
 
-def habla(texto, leng='es'):
+def habla(texto, leng='es'):                        # funcion para speech
 	print(texto)
 	voz=Speech(texto, leng)
 	return voz.play() 
@@ -204,7 +204,7 @@ def habla(texto, leng='es'):
 
 
 
-def traduce(texto, leng='en'):
+def traduce(texto, leng='en'):                      # funcion para traducir
 	traductor=Translator()
 	traduccion=traductor.translate(texto, dest=leng).text
 	pronunciacion=traductor.translate(texto, dest=leng).pronunciation
@@ -214,7 +214,7 @@ def traduce(texto, leng='en'):
 
 
 
-def mongo_escribe(ori, trad):    # llamada a atlas
+def mongo_escribe(ori, trad):                       # llamada a atlas
 	cliente=pymongo.MongoClient('mongodb+srv://Yonatan:{}@mambacluster-v9uol.mongodb.net/test?retryWrites=true&w=majority'.format(token('mongoatlas.txt')))
 	db=cliente.test  # base de datos
 
@@ -244,7 +244,7 @@ def mongo_escribe(ori, trad):    # llamada a atlas
 
 
 
-def escucha():         # graba audio
+def escucha():                                      # graba audio
 	r=sr.Recognizer()
 	with sr.Microphone() as s:
 		print('¡Cuentame!')
@@ -266,7 +266,7 @@ def escucha():         # graba audio
 
 
 
-def mamba(datos):
+def mamba(datos):                                   # asistente Mamba 
 	cliente=pymongo.MongoClient('mongodb+srv://Yonatan:{}@mambacluster-v9uol.mongodb.net/test?retryWrites=true&w=majority'.format(token('mongoatlas.txt')))
 	db=cliente.test
 	original=db.original
@@ -310,8 +310,8 @@ def mamba(datos):
 	if 'cómo estás' in datos:
 		habla('estoy bien, gracias')
 		
-	if 'qué hora es' in datos:
-		habla(ctime())
+	if 'hora' in datos:
+		habla(time.strftime("%H:%M:%S"))
 		
 
 
