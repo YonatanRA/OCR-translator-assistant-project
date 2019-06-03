@@ -6,6 +6,9 @@ import numpy as np                   # numerical python
 import pandas as pd                  # dataframe (datos parametros)
 from google_speech import Speech     # para hablar
 from googletrans import Translator   # para traducir
+import speech_recognition as sr      # reconocimiento de voz
+from time import ctime               # fecha
+import time                          # tiempo
 import os                            # sistema, directorios
 from keras.models import load_model  # carga modelo de keras
 import tensorflow as tf              # quitar texto de tensorflow
@@ -40,8 +43,6 @@ def captura():                                      # funcion captura video por 
 			break
 	cam.release()                                   # cierra la pantalla de captura
 	cv2.destroyAllWindows()                         # destruye todas las ventanas de imagen
-
-
 
 
 
@@ -90,12 +91,14 @@ def contorno():                                 # funcion captura de contorno, c
 
 
 
+
 def normalizador(X):               # normalizador de los datos de letra
     X_media=X.mean()               
     X_std=X.std()                  
     X=(X-X_media)/X_std            
     X=np.insert(X,0,1)             
     return X
+
 
 
 
@@ -106,7 +109,7 @@ def f(X,a):                                 # funcion logistica, sigmoide, funci
 
 
 def interpreta_softmax(idx):                     # funcion evaluacion modelo softmax
-	A_opt=pd.read_csv('alfa-letras.csv').values  # parametros salida softmax
+	A_opt=pd.read_csv('../input/alfa-letras.csv').values  # parametros salida softmax
 	resultado=''
 	
 	alfabeto={0:'0', 1:'1', 2:'2', 3:'3', 4:'4', 5:'5', 6:'6', 7:'7', 8:'8', 9:'9',
@@ -149,13 +152,15 @@ def interpreta_softmax(idx):                     # funcion evaluacion modelo sof
 	
 	for i in range(idx):        # borra imagenes
 		nombre=str(i+1)+'.png' 
-		os.remove(nombre)                           
+		os.remove(nombre) 
+	os.remove('captura.png')
+	os.remove('b&w.png')	                          
 	return resultado
 
 
 
 def interpreta_cnn(idx):                 # funcion evaluacion modelo cnn
-	modelo=load_model('modelo_cnn_letras.h5')   # modelo cnn
+	modelo=load_model('../input/modelo_cnn_letras.h5')   # modelo cnn
 	resultado=''
 	alfabeto={0:'0', 1:'1', 2:'2', 3:'3', 4:'4', 5:'5', 6:'6', 7:'7', 8:'8', 9:'9',
 		      10:'A', 11:'B', 12:'C', 13:'D', 14:'E', 15:'F', 16:'G', 17:'H', 18:'I', 19:'J',
@@ -181,7 +186,9 @@ def interpreta_cnn(idx):                 # funcion evaluacion modelo cnn
 		
 	for i in range(idx):        # borra imagenes
 		nombre=str(i+1)+'.png' 
-		os.remove(nombre) 	     
+		os.remove(nombre) 	  
+	os.remove('captura.png')
+	os.remove('b&w.png')	   
 	return resultado
 
 
@@ -189,6 +196,7 @@ def interpreta_cnn(idx):                 # funcion evaluacion modelo cnn
 
 
 def habla(texto, leng='es'):
+	print(texto)
 	voz=Speech(texto, leng)
 	return voz.play() 
 
@@ -225,26 +233,92 @@ def mongo_escribe(ori, trad):    # llamada a atlas
 	cont=0                   # comprueba si existe el original, si no añadela
 	for item in cursor:
 		if item['palabra']==ori: cont+=1
-	if cont==0: original.insert_one({'palabra':ori})
+	if cont==0 and ori!=trad: original.insert_one({'palabra':ori})
 
 	cont2=0                  # comprueba si existe la traduccion, si no añadela
 	for item2 in cursor2:
 		if item2['palabra']==trad: cont2+=1
-	if cont2==0: traduccion.insert_one({'palabra':trad})
+	if cont2==0 and ori!=trad: traduccion.insert_one({'palabra':trad})
 
 
 
 
-def mongo_lee():
+
+def escucha():         # graba audio
+	r=sr.Recognizer()
+	with sr.Microphone() as s:
+		print('¡Cuentame!')
+		#habla('cuentame')
+		r.adjust_for_ambient_noise(s)
+		audio=r.listen(s)
+	
+	datos=''  # reconocimiento de voz
+	try:      # Usa API key por defecto, para usar otra: `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
+		datos=r.recognize_google(audio, language='es-ES')
+		print('Has dicho: ' + datos)
+	except sr.UnknownValueError:
+		print("Google Speech Recognition no ha podido reconocer el audio.")
+		habla('aa sii, cuentame maas')
+	except sr.RequestError as e:
+		print("No hay respuesta desde el servicio de Google Speech Recognition; {0}".format(e))
+	return datos
+
+
+
+
+def mamba(datos):
 	cliente=pymongo.MongoClient('mongodb+srv://Yonatan:{}@mambacluster-v9uol.mongodb.net/test?retryWrites=true&w=majority'.format(token('mongoatlas.txt')))
-	db=cliente.test           # base de datos
-	original=db.original      # colecciones
+	db=cliente.test
+	original=db.original
 	traduccion=db.traduccion
-	cursor=original.find()    # cursores
+	cursor=original.find()
 	cursor2=traduccion.find()
-	for item in cursor:
-		print(item['palabra'])
-	for item2 in cursor2:
-		print(item2['palabra'])
+
+	
+	if 'captura' in datos:
+		captura()
+		contraste()
+		idx=contorno()
+		#palabra=interpreta_softmax(idx).lower()        # con modelo softmax
+		palabra=interpreta_cnn(idx).lower()             # con modelo convolucional
+		#print (palabra)
+		habla(palabra, leng='es')
+		idioma='en'
+		traduccion=(traduce(palabra.lower(), leng=idioma))
+		#print (traduccion)
+		habla(traduccion, leng=idioma)
+		mongo_escribe(palabra, traduccion)
+	
+	if 'originales' in datos:
+		cursor=original.find()
+		for item in cursor:
+			habla(item['palabra'])
+
+			
+	if 'traducciones' in datos:
+		cursor2=traduccion.find()
+		for item in cursor2:
+			habla(item['palabra'], leng='en')
+
+		
+	if 'gracias' in datos:
+		habla('gracias a ti, alegre')
+		flag=True
+		return flag
+
+		
+	if 'cómo estás' in datos:
+		habla('estoy bien, gracias')
+		
+	if 'qué hora es' in datos:
+		habla(ctime())
+		
+
+
+
+
+
+
+
 
 
