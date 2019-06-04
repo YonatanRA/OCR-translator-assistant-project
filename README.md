@@ -74,7 +74,7 @@ The next is to resize the images and then predict with the models.
 ## Mamba
 
 The voice assistant is based on speech recognition from Google. Both original words and translated words were saved on MongoAtlas cloud database for a request from Mamba after the image recognition. 
-
+Apart from image capture, Mamba has some other functions like giving actual time or greeting.
 
 
 
