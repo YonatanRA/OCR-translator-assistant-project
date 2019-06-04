@@ -1,4 +1,4 @@
-![IronHack Inverse](../images/ironhack.png)
+![IronHack Inverse](https://github.com/YonatanRA/OCR-translator-assistant-project/blob/master/images/ironhack.png)
 
 # OCR-translator-assistant (Mamba)
 
