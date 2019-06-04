@@ -14,13 +14,14 @@ The first idea for this project was the OCR translator, using a custom logistic 
 
 The next step has been the implementation of a convolutional neural network (CNN) as the predict model. The accuracy grows up until 85% for 62 labels and 94% for 26 labels.
 
-With this model
+With this model, the challenge was build a voice assistant, called Mamba.
 
 
 
 
+## Data
 
-
+* [EMNIST Dataset](https://www.kaggle.com/crawford/emnist)
 
 
 
