@@ -60,9 +60,12 @@ The input shape is (28,28,1) and the output layer is equal to the number of labe
 
 
 
+##
+## Image capture
 
-
-
+OpenCV library is used for image capturing and find the contours of the letters, as is shown below:
+ 
+![OpenCV](https://github.com/YonatanRA/OCR-translator-assistant-project/blob/master/images/contour.png)
 
 
 
