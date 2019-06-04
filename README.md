@@ -67,9 +67,13 @@ OpenCV library is used for image capturing and find the contours of the letters,
  
 ![OpenCV](https://github.com/YonatanRA/OCR-translator-assistant-project/blob/master/images/contour.png)
 
+The next is to resize the images and then predict with the models.
 
 
+##
+## Mamba
 
+The voice assistant is based on speech recognition from Google. Both original words and translated words were saved on MongoAtlas cloud database for a request from Mamba after the image recognition. 
 
 
 
