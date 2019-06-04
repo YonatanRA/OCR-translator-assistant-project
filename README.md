@@ -2,13 +2,15 @@
 
 # OCR-translator-assistant (Mamba)
 
-**[Yonatan Rodriguez]**
+**Yonatan Rodriguez**
 
-**[Data Analytics Bootcamp]**
-
-
+**Data Analytics Bootcamp**
 
 
+
+## Overview
+
+The first idea for this project was the OCR translator, using a custom logistic regression
 
 
 
