@@ -23,7 +23,9 @@ With this model, the challenge was build a voice assistant, called Mamba.
 
 * [EMNIST Dataset](https://www.kaggle.com/crawford/emnist)
 
+The dataset is the extended MNIST, with numbers, uppercases and lowercases. For some reason, the images are rotated and fliped, so first is needed fix the data. The script fix_data.py has this purpose.
 
+Once the data is fixed, 
 
 
 
