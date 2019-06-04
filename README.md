@@ -18,7 +18,7 @@ With this model, the challenge was build a voice assistant, called Mamba.
 
 
 
-
+##
 ## Data
 
 * [EMNIST Dataset](https://www.kaggle.com/crawford/emnist)
@@ -29,10 +29,10 @@ Once the data is fixed, it's possible to train the models.
 
 
 
-
+##
 ## Softmax model
 
-The softmax model is the logistic regression multilabel, using the sigmoid function. The minimize from scipy is used to optimize the cost function. The plots of confussion matrix show the results. First with 26 labels:
+The softmax model is the logistic regression multilabel, using the sigmoid function. The minimize from scipy is used to optimize the cost function. The plots of confussion matrix are showing the results. First with 26 labels:
 
 ![Confussion M Soft 26](https://github.com/YonatanRA/OCR-translator-assistant-project/blob/master/images/Confusion%20Matrix%20Softmax%20(letters).png)
 
@@ -44,7 +44,8 @@ Now, 62 labels:
 
 
 
-
+##
+## CNN model
 
 
 
