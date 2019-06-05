@@ -7,7 +7,6 @@ import pandas as pd                  # dataframe (datos parametros)
 from google_speech import Speech     # para hablar
 from googletrans import Translator   # para traducir
 import speech_recognition as sr      # reconocimiento de voz
-from time import ctime               # fecha
 import time                          # tiempo
 import os                            # sistema, directorios
 from keras.models import load_model  # carga modelo de keras
@@ -310,7 +309,7 @@ def mamba(datos):                                   # asistente Mamba
 	if 'cómo estás' in datos:
 		habla('estoy bien, gracias')
 		
-	if 'hora' in datos:
+	if 'qué hora es' in datos:
 		habla(time.strftime("%H:%M:%S"))
 		
 
