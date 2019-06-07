@@ -257,7 +257,7 @@ def escucha():                                      # graba audio
 		print('Has dicho: ' + datos)
 	except sr.UnknownValueError:
 		print("Google Speech Recognition no ha podido reconocer el audio.")
-		habla('aa sii, cuentame maas')
+		habla('Disculpa, no te he entendido.')
 	except sr.RequestError as e:
 		print("No hay respuesta desde el servicio de Google Speech Recognition; {0}".format(e))
 	return datos
