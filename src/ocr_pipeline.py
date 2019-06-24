@@ -285,7 +285,8 @@ def mamba(datos):                                   # asistente Mamba
 	traduccion=db.traduccion
 	cursor=original.find()
 	cursor2=traduccion.find()
-
+	
+	idioma='en'   # idioma traduccion
 	
 	if 'captura' in datos:
 		captura()
@@ -294,10 +295,9 @@ def mamba(datos):                                   # asistente Mamba
 		#palabra=interpreta_softmax(idx).lower()        # con modelo softmax
 		palabra=interpreta_cnn(idx).lower()             # con modelo convolucional
 		#print (palabra)
-		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
+		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
 		habla(palabra, leng='es')
-		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
-		idioma='en'
+		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
 		traduccion=(traduce(palabra.lower(), leng=idioma))
 		#print (traduccion)
 		habla(traduccion, leng=idioma)
@@ -306,38 +306,38 @@ def mamba(datos):                                   # asistente Mamba
 	
 	if 'originales' in datos:
 		cursor=original.find()
-		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
+		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
 		for item in cursor:
 			habla(item['palabra'])
-		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
+		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
 		
 		
 	if 'traducciones' in datos:
 		cursor2=traduccion.find()
-		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
+		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
 		for item in cursor2:
-			habla(item['palabra'], leng='en')
-		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})	
+			habla(item['palabra'], leng=idioma)
+		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})	
 	
 	
 	if 'gracias' in datos:
-		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
+		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
 		habla('gracias a ti, alegre')
-		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
+		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
 		flag=True
 		return flag
 	
 	
 	if 'cómo estás' in datos:
-		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
+		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
 		habla('estoy bien, gracias')
-		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
+		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
 		
 		
 	if 'qué hora es' in datos:
-		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
+		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
 		habla(time.strftime("%H:%M:%S"))
-		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
+		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
 
 	
 
@@ -345,9 +345,9 @@ def exe():                                        # funcion de ejecucion
 	while 1:
 		trigger_word=activacion()     # palabra activacion
 		if trigger_word=='escucha':
-			trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
+			trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
 			habla('Hola. Cuentame.')
-			trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
+			trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
 			while 1:
 				datos=escucha()
 				flag=mamba(datos)

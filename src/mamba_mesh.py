@@ -51,7 +51,7 @@ class Voice():
 
 
 
-        # creaarray de vertices
+        # crea array de vertices
         verts, faces, colors=self.mesh()
 
         self.mesh1=gl.GLMeshItem(
