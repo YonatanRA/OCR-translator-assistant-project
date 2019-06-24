@@ -339,9 +339,16 @@ def mamba(datos):                                   # asistente Mamba
 		habla(time.strftime("%H:%M:%S"))
 		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
 	
+	
 	if 'Siri' in datos:
 		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
 		habla('siri es una manzana mordida y alexa es una amazona')
+		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
+		
+		
+	if 'te pones' in datos:
+		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
+		habla('eres tu el que pregunta')
 		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
 
 	
