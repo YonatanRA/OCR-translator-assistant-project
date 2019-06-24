@@ -319,6 +319,7 @@ def mamba(datos):                                   # asistente Mamba
 			habla(item['palabra'], leng='en')
 		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})	
 	
+	
 	if 'gracias' in datos:
 		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
 		habla('gracias a ti, alegre')
@@ -326,10 +327,12 @@ def mamba(datos):                                   # asistente Mamba
 		flag=True
 		return flag
 	
+	
 	if 'cómo estás' in datos:
 		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
 		habla('estoy bien, gracias')
 		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
+		
 		
 	if 'qué hora es' in datos:
 		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
@@ -338,7 +341,7 @@ def mamba(datos):                                   # asistente Mamba
 
 	
 
-def exe():
+def exe():                                        # funcion de ejecucion
 	while 1:
 		trigger_word=activacion()     # palabra activacion
 		if trigger_word=='escucha':
