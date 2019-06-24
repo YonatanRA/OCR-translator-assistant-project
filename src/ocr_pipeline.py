@@ -23,6 +23,15 @@ def token(token):                                   # lectura de txt, token
     return t
 
 
+cliente=pymongo.MongoClient('mongodb+srv://Yonatan:{}@mambacluster-v9uol.mongodb.net/test?retryWrites=true&w=majority'.format(token('mongoatlas.txt')))
+db=cliente.test
+original=db.original      # colecciones
+traduccion=db.traduccion
+trigger=db.trigger
+cursor=original.find()    # cursores
+cursor2=traduccion.find()
+cursor3=trigger.find()
+
 
 
 def captura():                                      # funcion captura video por webcam (para sacar foto)
@@ -294,33 +303,47 @@ def mamba(datos):                                   # asistente Mamba
 		#palabra=interpreta_softmax(idx).lower()        # con modelo softmax
 		palabra=interpreta_cnn(idx).lower()             # con modelo convolucional
 		#print (palabra)
+		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
 		habla(palabra, leng='es')
+		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
 		idioma='en'
 		traduccion=(traduce(palabra.lower(), leng=idioma))
 		#print (traduccion)
 		habla(traduccion, leng=idioma)
 		mongo_escribe(palabra, traduccion)
 	
+	
 	if 'originales' in datos:
 		cursor=original.find()
+		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
 		for item in cursor:
 			habla(item['palabra'])
+		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
+		
 		
 	if 'traducciones' in datos:
 		cursor2=traduccion.find()
+		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
 		for item in cursor2:
 			habla(item['palabra'], leng='en')
+		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})	
 	
 	if 'gracias' in datos:
+		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
 		habla('gracias a ti, alegre')
+		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
 		flag=True
 		return flag
 	
 	if 'cómo estás' in datos:
+		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
 		habla('estoy bien, gracias')
+		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
 		
 	if 'qué hora es' in datos:
+		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
 		habla(time.strftime("%H:%M:%S"))
+		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
 		
 
 

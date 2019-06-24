@@ -14,7 +14,7 @@ def token(token):                # lectura de txt, token
 cliente=pymongo.MongoClient('mongodb+srv://Yonatan:{}@mambacluster-v9uol.mongodb.net/test?retryWrites=true&w=majority'.format(token('mongoatlas.txt')))
 db=cliente.test
 trigger=db.trigger
-cursor=trigger.find()
+cursor3=trigger.find()
 
 
 class Voice():
@@ -112,8 +112,8 @@ class Voice():
     def update(self): # actualiza malla
 		
         wf_data=self.stream.read(self.CHUNK)
-        self.trigger=int([e['a'] for e in cursor][0])
-        cursor.rewind()
+        self.trigger=int([e['a'] for e in cursor3][0])
+        cursor3.rewind()
         verts, faces, colors=self.mesh(offset=self.offset, wf_data=wf_data)
         self.mesh1.setMeshData(vertexes=verts, faces=faces, faceColors=colors)
         self.offset-=0.05
