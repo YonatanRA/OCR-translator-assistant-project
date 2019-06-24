@@ -240,7 +240,21 @@ def mongo_escribe(ori, trad):                       # llamada a atlas
 	if cont2==0 and ori!=trad: traduccion.insert_one({'palabra':trad})
 
 
-
+def activacion():                                      # graba audio
+	r=sr.Recognizer()
+	with sr.Microphone() as s:
+		print('Desactivada...')
+		r.adjust_for_ambient_noise(s)
+		audio=r.listen(s)
+	
+	datos=''  # reconocimiento de voz
+	try:      # Usa API key por defecto, para usar otra: `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
+		datos=r.recognize_google(audio, language='es-ES')
+	except sr.UnknownValueError:
+		print("Google Speech Recognition no ha podido reconocer el audio.")
+	except sr.RequestError as e:
+		print("No hay respuesta desde el servicio de Google Speech Recognition; {0}".format(e))
+	return datos
 
 
 def escucha():                                      # graba audio
@@ -261,7 +275,6 @@ def escucha():                                      # graba audio
 	except sr.RequestError as e:
 		print("No hay respuesta desde el servicio de Google Speech Recognition; {0}".format(e))
 	return datos
-
 
 
 
@@ -292,26 +305,45 @@ def mamba(datos):                                   # asistente Mamba
 		cursor=original.find()
 		for item in cursor:
 			habla(item['palabra'])
-
-			
+		
 	if 'traducciones' in datos:
 		cursor2=traduccion.find()
 		for item in cursor2:
 			habla(item['palabra'], leng='en')
-
-		
+	
 	if 'gracias' in datos:
 		habla('gracias a ti, alegre')
 		flag=True
 		return flag
-
-		
+	
 	if 'cómo estás' in datos:
 		habla('estoy bien, gracias')
 		
 	if 'qué hora es' in datos:
 		habla(time.strftime("%H:%M:%S"))
 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
