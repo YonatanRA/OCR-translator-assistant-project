@@ -76,6 +76,7 @@ The next is to resize the images and then predict with the models.
 The voice assistant is based on speech recognition from Google. Both original words and translated words were saved on MongoAtlas cloud database for a request from Mamba after the image recognition. 
 Apart from image capture, Mamba has some other functions like giving actual time or greeting.
 For playing with Mamba assistant, use the ejecucion.py script.
+Thanks to [markjay4k](https://github.com/markjay4k/Audio-Spectrum-Analyzer-in-Python) for the graphics.
 
 
 
