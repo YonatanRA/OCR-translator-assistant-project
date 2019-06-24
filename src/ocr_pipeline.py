@@ -13,7 +13,7 @@ from keras.models import load_model  # carga modelo de keras
 import tensorflow as tf              # quitar texto de tensorflow
 tf.logging.set_verbosity(tf.logging.ERROR)
 import pymongo                       # mongodb, para llamada a atlas
-
+from mamba_mesh import *
 
 
 
@@ -54,7 +54,6 @@ def captura():                                      # funcion captura video por 
 
 
 
-
 def contraste():                                    # funcion para pasar imagen a blanco y negro 
 	image=cv2.imread('captura.png')                 # lee la captura de imagen         
 	im=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)       # pasa a escala de grises
@@ -68,8 +67,6 @@ def contraste():                                    # funcion para pasar imagen 
 	#cv2.imshow('img', img)                          # muestra la imagen
 	cv2.imwrite('b&w.png', img)                     # guarda imagen en blanco y negro
 	cv2.waitKey(1)                                  # espera por tecla (si se comenta esta linea no se muestra la imagen)                
-
-
 
 
   
@@ -98,8 +95,6 @@ def contorno():                                     # funcion captura de contorn
 
 
 
-
-
 def normalizador(X):                                # normalizador de los datos de letra
     X_media=X.mean()               
     X_std=X.std()                  
@@ -109,10 +104,8 @@ def normalizador(X):                                # normalizador de los datos 
 
 
 
-
 def f(X,a):                                         # funcion logistica, sigmoide, funcion del modelo, con z=X*alfa, el producto escalar
     return 1.0/(1.0+np.exp(-np.dot(X,a)))           # Boltzmann con pivote, alfa[i]=0
-
 
 
 
@@ -201,14 +194,10 @@ def interpreta_cnn(idx):                            # funcion evaluacion modelo 
 
 
 
-
-
 def habla(texto, leng='es'):                        # funcion para speech
 	print(texto)
 	voz=Speech(texto, leng)
 	return voz.play() 
-
-
 
 
 
@@ -217,8 +206,6 @@ def traduce(texto, leng='en'):                      # funcion para traducir
 	traduccion=traductor.translate(texto, dest=leng).text
 	pronunciacion=traductor.translate(texto, dest=leng).pronunciation
 	return traduccion
-
-
 
 
 
@@ -249,6 +236,7 @@ def mongo_escribe(ori, trad):                       # llamada a atlas
 	if cont2==0 and ori!=trad: traduccion.insert_one({'palabra':trad})
 
 
+
 def activacion():                                      # graba audio
 	r=sr.Recognizer()
 	with sr.Microphone() as s:
@@ -266,6 +254,7 @@ def activacion():                                      # graba audio
 	return datos
 
 
+
 def escucha():                                      # graba audio
 	r=sr.Recognizer()
 	with sr.Microphone() as s:
@@ -280,7 +269,9 @@ def escucha():                                      # graba audio
 		print('Has dicho: ' + datos)
 	except sr.UnknownValueError:
 		print("Google Speech Recognition no ha podido reconocer el audio.")
+		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
 		habla('Disculpa, no te he entendido.')
+		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
 	except sr.RequestError as e:
 		print("No hay respuesta desde el servicio de Google Speech Recognition; {0}".format(e))
 	return datos
@@ -344,7 +335,27 @@ def mamba(datos):                                   # asistente Mamba
 		trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
 		habla(time.strftime("%H:%M:%S"))
 		trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
-		
+
+	
+
+def exe():
+	while 1:
+		trigger_word=activacion()     # palabra activacion
+		if trigger_word=='escucha':
+			trigger.update_one({"a":'0'}, {"$set":{"a": "1"}})
+			habla('Hola. Cuentame.')
+			trigger.update_one({"a":'1'}, {"$set":{"a": "0"}})
+			while 1:
+				datos=escucha()
+				flag=mamba(datos)
+				if flag: break
+
+
+
+
+
+
+
 
 
 
