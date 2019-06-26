@@ -14,6 +14,8 @@ import tensorflow as tf              # quitar texto de tensorflow
 tf.logging.set_verbosity(tf.logging.ERROR)
 import pymongo                       # mongodb, para llamada a atlas
 from mamba_mesh import *
+from darksky import forecast
+from datetime import date, timedelta
 
 
 
@@ -209,6 +211,23 @@ def traduce(texto, leng='en'):                      # funcion para traducir
 
 
 
+def clima():
+	MADRID=40.4165000, -3.7025600
+	dia_semana=date.today()
+	semana=[]
+	with forecast('2e27c520174cdbb07f95a6ecf01fe848', *MADRID) as madrid:
+		for dia in madrid.daily:
+			dia=dict(dia=date.strftime(dia_semana, '%a'),
+					 sum=dia.summary,
+					 tempMin=round((dia.temperatureMin-32)/1.8),
+					 tempMax=round((dia.temperatureMax-32)/1.8)
+					   )
+			semana.append(dia)
+			dia_semana+=timedelta(days=1)
+	return [semana[0]['sum'], semana[0]['tempMin'], semana[0]['tempMax'], semana[1]['sum'], semana[1]['tempMin'], semana[1]['tempMax']]
+
+
+
 def mongo_escribe(ori, trad):                       # llamada a atlas
 	cliente=pymongo.MongoClient('mongodb+srv://Yonatan:{}@mambacluster-v9uol.mongodb.net/test?retryWrites=true&w=majority'.format(token('mongoatlas.txt')))
 	db=cliente.test  # base de datos
@@ -349,6 +368,24 @@ def mamba(datos):                                   # asistente Mamba
 	if 'te pones' in datos:
 		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
 		habla('eres tu el que pregunta')
+		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
+		
+	
+	if 'tiempo' in datos:
+		c=clima()
+		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
+		habla(traduce(c[0], leng='es'))
+		habla('temperatura mínima '+str(c[1])+' grados')
+		habla('temperatura máxima '+str(c[2])+' grados')
+		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
+	
+	
+	if 'mañana' in datos:
+		c=clima()
+		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
+		habla(traduce(c[3], leng='es'))
+		habla('temperatura mínima '+str(c[4])+' grados')
+		habla('temperatura máxima '+str(c[5])+' grados')
 		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
 
 	
