@@ -16,6 +16,7 @@ import pymongo                       # mongodb, para llamada a atlas
 from mamba_mesh import *
 from darksky import forecast
 from datetime import date, timedelta
+import re
 
 
 
@@ -177,22 +178,25 @@ def interpreta_cnn(idx):                            # funcion evaluacion modelo 
 	            11:'K', 12:'L', 13:'M', 14:'N', 15:'O', 16:'P', 17:'Q', 18:'R', 19:'S', 20:'T',
 	            21:'U', 22:'V', 23:'W', 24:'X', 25:'Y', 26:'Z'}
 	
-	for i in range(idx):
-		nombre=str(i+1)+'.png'           # nombre de la imagen
-		img=cv2.imread(nombre)           # lee imagen
-		datos=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-		datos=np.array(Image.fromarray(datos).resize((28,28)))
-		datos=(255-datos)/255              # normliza y negativo imagen
-		datos=datos.reshape(1,28,28,1)     # redimensiona para input
-		pred=modelo.predict_classes(datos) # prediccion
-		resultado+=alfabeto_M[pred[0]]  
+	try:
+		for i in range(idx):
+			nombre=str(i+1)+'.png'           # nombre de la imagen
+			img=cv2.imread(nombre)           # lee imagen
+			datos=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+			datos=np.array(Image.fromarray(datos).resize((28,28)))
+			datos=(255-datos)/255              # normliza y negativo imagen
+			datos=datos.reshape(1,28,28,1)     # redimensiona para input
+			pred=modelo.predict_classes(datos) # prediccion
+			resultado+=alfabeto_M[pred[0]]  
+			
+		for i in range(idx):        # borra imagenes
+			nombre=str(i+1)+'.png' 
+			os.remove(nombre) 	  
+		os.remove('captura.png')
+		os.remove('b&w.png')	   
+		return resultado
 		
-	for i in range(idx):        # borra imagenes
-		nombre=str(i+1)+'.png' 
-		os.remove(nombre) 	  
-	os.remove('captura.png')
-	os.remove('b&w.png')	   
-	return resultado
+	except: return 'No se ha reconocido la imagen, ha fallado el ordenado de open c v'
 
 
 
@@ -256,7 +260,7 @@ def mongo_escribe(ori, trad):                       # llamada a atlas
 
 
 
-def activacion():                                      # graba audio
+def activacion():                                   # graba audio
 	r=sr.Recognizer()
 	with sr.Microphone() as s:
 		print('Desactivada...')
@@ -308,19 +312,25 @@ def mamba(datos):                                   # asistente Mamba
 	idioma='en'   # idioma traduccion
 	
 	if 'captura' in datos:
-		captura()
-		contraste()
-		idx=contorno()
-		#palabra=interpreta_softmax(idx).lower()        # con modelo softmax
-		palabra=interpreta_cnn(idx).lower()             # con modelo convolucional
-		#print (palabra)
-		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
-		habla(palabra, leng='es')
-		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
-		traduccion=(traduce(palabra.lower(), leng=idioma))
-		#print (traduccion)
-		habla(traduccion, leng=idioma)
-		mongo_escribe(palabra, traduccion)
+		try:
+			captura()
+			contraste()
+			idx=contorno()
+			#palabra=interpreta_softmax(idx).lower()        # con modelo softmax
+			palabra=interpreta_cnn(idx).lower()             # con modelo convolucional
+			#print (palabra)
+			trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
+			habla(palabra, leng='es')
+			trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
+			traduccion=(traduce(palabra.lower(), leng=idioma))
+			#print (traduccion)
+			habla(traduccion, leng=idioma)
+			mongo_escribe(palabra, traduccion)
+		
+		except:
+			trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
+			habla('No se ha reconocido la imagen', leng='es')
+			trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
 	
 	
 	if 'originales' in datos:
@@ -374,7 +384,7 @@ def mamba(datos):                                   # asistente Mamba
 	if 'tiempo' in datos:
 		c=clima()
 		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
-		habla(traduce(c[0], leng='es'))
+		habla(re.sub('Borrar', 'Despejado', traduce(c[0], leng='es')))
 		habla('temperatura mínima '+str(c[1])+' grados')
 		habla('temperatura máxima '+str(c[2])+' grados')
 		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
@@ -383,14 +393,21 @@ def mamba(datos):                                   # asistente Mamba
 	if 'mañana' in datos:
 		c=clima()
 		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
-		habla(traduce(c[3], leng='es'))
+		habla(re.sub('Borrar', 'Despejado', traduce(c[3], leng='es')))
 		habla('temperatura mínima '+str(c[4])+' grados')
 		habla('temperatura máxima '+str(c[5])+' grados')
 		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
+	
+	
+	if 'chiste' in datos:
+		trigger.update_one({"a":'0'}, {"$set":{"a":"1"}})
+		habla('van dos soldados en una moto y....no se cae ninguno porque van soldados')
+		trigger.update_one({"a":'1'}, {"$set":{"a":"0"}})
+		
 
 	
 
-def exe():                                        # funcion de ejecucion
+def exe():                                          # funcion de ejecucion
 	while 1:
 		trigger_word=activacion()     # palabra activacion
 		if trigger_word=='escucha':
