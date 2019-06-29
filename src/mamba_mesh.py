@@ -81,7 +81,7 @@ class Voice():
 
         faces=[]
         colors=[]
-        verts=np.array([[x, y, wf_data[xid][yid] * amp/2000] for xid, x in enumerate(self.xpoints) for yid, y in enumerate(self.ypoints)], 
+        verts=np.array([[x, y, wf_data[xid][yid] * amp/1900] for xid, x in enumerate(self.xpoints) for yid, y in enumerate(self.ypoints)], 
                          dtype=np.float32)
         
         for yid in range(self.nfaces-1):
