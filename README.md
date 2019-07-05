@@ -82,7 +82,7 @@ Thanks to [markjay4k](https://github.com/markjay4k/Audio-Spectrum-Analyzer-in-Py
 ![Captura](https://github.com/YonatanRA/OCR-translator-assistant-project/blob/master/images/captura.png)
 
 
-
+![Captura2](https://github.com/YonatanRA/OCR-translator-assistant-project/blob/master/images/captura2.png)
 
 
 
