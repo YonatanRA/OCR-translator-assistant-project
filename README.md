@@ -79,7 +79,7 @@ For playing with Mamba assistant, use the ejecucion.py script. You need to creat
 Thanks to [markjay4k](https://github.com/markjay4k/Audio-Spectrum-Analyzer-in-Python) for the graphics.
 
 
-
+![Captura](https://github.com/YonatanRA/OCR-translator-assistant-project/blob/master/images/captura.png)
 
 
 
